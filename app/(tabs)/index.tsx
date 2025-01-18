@@ -44,9 +44,11 @@ export default function HomeScreen() {
         
         <TouchableOpacity 
           style={[styles.button, styles.secondaryButton]}
-          onPress={() => router.push('/profile')}
+          onPress={() => router.push('/(caregiver-flow)/care-type')}
         >
-          <Text style={[styles.buttonText, styles.secondaryButtonText]}>I'm a caregiver</Text>
+          <Text style={[styles.buttonText, styles.secondaryButtonText]}>
+            I'm a caregiver
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
