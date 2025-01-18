@@ -4,12 +4,13 @@ import { Tabs } from 'expo-router';
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
+import { Platform } from 'react-native';
 
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
 }) {
-  return <FontAwesome size={24} style={{ marginBottom: 0 }} {...props} />;
+  return <FontAwesome size={24} style={{ marginBottom: 3 }} {...props} />;
 }
 
 export default function TabLayout() {
@@ -25,13 +26,18 @@ export default function TabLayout() {
           borderTopWidth: 1,
           borderTopColor: Colors[colorScheme ?? 'light'].border,
           elevation: 0,
-          height: 88,
-          paddingBottom: 32,
-          paddingTop: 12,
+          height: Platform.OS === 'ios' ? 100 : 80,
+          paddingTop: 8,
+          paddingBottom: Platform.OS === 'ios' ? 30 : 15,
         },
         tabBarLabelStyle: {
           fontSize: 12,
           fontWeight: '500',
+          marginTop: 4,
+          marginBottom: Platform.OS === 'ios' ? 0 : 8,
+        },
+        tabBarIconStyle: {
+          marginTop: 4,
         },
       }}>
       <Tabs.Screen
